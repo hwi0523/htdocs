@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body><!--textarea는 value 안씀-->
+    <!-- readonly는 읽는거만 가능 변경 불가
+    select / option / value 같이씀-->
+    <h1> my from</h1>
+    <from action="/login">
+        <div>
+            <input type="text" name="iuser" value="1" readonly></div>
+            <div><input type="text" name="uid" placeholder="user id" required></div>
+            <div><input type="password" name="upw" placeholder="user password" required></div>
+            <div><label>프사 : <input type="file" name="pic" accept="image/*" multiple></label></div>
+            <div><label>남긴 말 <textarea cols="20" row="10" name="cmt">gogogogogo</textarea></label></div>
+            <div>
+                <div>
+                    <label>지역 :
+                    <select name="location" multiple>
+                        <option value="1">서울</option>
+                        <option value="2">대전</option>
+                        <option value="3" selected>대구</option>
+                        <option value="4">부산</option>
+                    </select>
+                </label>
+                </div>
+                <div>
+                    취미:
+                    <label><input type="checkbox" name="hobbit" value="1" checked>농구</label>
+                    <label><input type="checkbox" name="hobbit" value="2">축구</label>
+                    <label><input type="checkbox" name="hobbit" value="3">배구</label>
+                    <label><input type="checkbox" name="hobbit" value="4">탁구</label>
+                </div>
+                <div>
+                    성별 :
+                    <lavel>여성<input type="radio" name="gender" valul="f" checked></lavel>
+                    <lavel>남성<input type="radio" name="gender" valul="m"></lavel>
+                </div>
+                <input type="submit" value="join">
+                <input type="reset" value="reset">
+            </div>
+    </from>
+</body>
+</html>

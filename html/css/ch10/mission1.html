@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* label 이 input을 담고 있는 것만 유지 !!! */
+        input:checked + span{color:red; font-weight: bold;}
+    </style>
+</head>
+<body>
+    <ul>
+        <li>
+        <label><input type="radio" name="room" checked> <span>기본형(최대2인)</span></label>
+        </li>
+        <li>
+            <label><input type="radio" name="room"><span>가족형 (최대8인)</span></label>
+        </li>
+</body>
+</html>

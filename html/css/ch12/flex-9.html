@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .layout{
+            max-width: 600px; /* body는 600px 이상 늘어나지 않는다 */
+            margin: 0 auto;
+            padding: 0;
+        }
+        .flexbox {         
+            display: flex; 
+            flex-wrap: nowrap; 
+            gap: 10px; 
+            padding: 10px;
+            background-color: #e8e8e8;
+        }
+        /* flex-basic 는 기본값
+          "flex-shrink 의 기본값은 1 숫자가 0이면 안줄어듬 */
+        .item { flex-basis: 100px;  min-height: 150px; flex-basis: 100px; }
+        .item:nth-child(odd) { background-color: aqua; }
+        .item:nth-child(even) { background-color: blueviolet }
+    </style>
+</head>
+<body>
+    <div class="layout">
+        <div class="flexbox">
+            <item class="item" style="flex-grow:1; flex-shrink: 1;">content1</item>
+            <item class="item" style="flex-shrink: 0;">content2</item>
+            <item class="item" style="flex-shrink: 1;">content3</item>
+            <item class="item" style="flex-shrink: 3;">content4</item>
+        </div>
+    </div>
+</body>
+</html>

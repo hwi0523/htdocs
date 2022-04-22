@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+        .contets :nth-child(2) { color: red; }
+        .contets p:nth-of-type(3) {color: blue;}
+        .contets p:nth-last-of-type(1) {color : pink}
+        */
+        /*
+        .contets :nth-child(odd) {color: red;}
+        .contets :nth-child(even) {background-color: azure;}
+        */
+        /*
+        n 짝수 2n (odd 홀수) (even 짝수)
+        0 > 1
+        1 > 4
+        2 > 7
+        */
+        .contets :nth-child(2n+1) {color: red;}
+        .contets :nth-child(2n) {background-color: aqua;}
+        .contets :nth-last-child(3) {background-color: blue;}
+        
+    </style>
+</head>
+<body>
+    <div class="contets">
+        <h2>이용 고객</h2>
+        <p>p1</p>
+        <p>p2</p>
+        <h2>객실 소개</h2>
+        <p>p3</p>
+        <h2>예약 방법 및 요금</h2>
+        <p>p4</p>
+    </div>
+    
+</body>
+</html>

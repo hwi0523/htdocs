@@ -1,0 +1,39 @@
+* {box-sizing: border-box;}
+body{
+    scroll-behavior: smooth;
+    color: #fff;
+    }
+    
+    a{
+    color: #fff;
+    background-color: goldenrod;
+    text-decoration-line :none}
+    ul{list-style: none;}
+    ul li {
+        border: 1px solid #ccc;
+        margin: 20px; 
+    }
+    li img{
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;   
+    }
+    figure{
+        position: relative;
+    }
+    #wrapper{ color: #fff;
+    }
+    h3{
+        position: absolute;
+        width: 400px;
+        height: 100px;
+        bottom: 10px;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    ul li p{
+        color: #000;
+    }
