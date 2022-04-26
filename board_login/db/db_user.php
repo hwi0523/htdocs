@@ -1,21 +1,33 @@
 <?php
-    include_once "db.php";
+ include_once "db.php";
 
-    function user_join($param)
-    {
-        $uid = $param["uid"];
-        $upw = $param['upw'];
-        $nm = $param['nm'];
-        $gender = $param['gender'];
+ function ins_user($param) {
+    $uid = $param["uid"];
+    $upw = $param["upw"];
+    $nm = $param["nm"];
+    $gender = $param["gender"];
 
-        $conn= get_conn();
-        $sql=
-        "INSERT INTO t_user 
+    $conn = get_conn();
+    $sql = 
+    "   INSERT INTO t_user 
         (uid, upw, nm, gender)
         VALUES
-        ('$uid','$upw','$nm','$gender')
-        ";
-        $result=mysqli_query($conn,$sql);
-        mysqli_close($conn);
-        return $result;
-    }
+        ('$uid', '$upw', '$nm', $gender)
+    ";        
+    $result = mysqli_query($conn, $sql); 
+    mysqli_close($conn);
+    return $result;
+ }
+
+ function sel_user(&$param) {  // 선언문은 안바뀌는게 좋음
+    $uid = $param["uid"];
+    $sql = 
+    "   SELECT i_user, uid, upw, nm, gender
+        FROM t_user
+        WHERE uid = '$uid'
+    ";
+    $conn = get_conn();
+    $result = mysqli_query($conn, $sql);
+    mysqli_close($conn);
+    return mysqli_fetch_assoc($result); // 레코드 첫줄을 배열로 만듬
+ }
