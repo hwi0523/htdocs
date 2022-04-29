@@ -13,6 +13,7 @@
         <div><input type="password" name="upw" placeholder="비밀번호"></div>
         <div><input type="submit" value="로그인"></div>
     </form>
+    <a href="list.php"><button>리스트</button></a>
     <a href="join.php">회원가입</a>
 </body>
 </html>

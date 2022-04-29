@@ -1,4 +1,3 @@
-
 <?php
     include_once "db/db_user.php";
 
@@ -12,19 +11,16 @@
         "uid" => $uid,
         "upw" => $upw,
         "nm" => $nm,
-        "gender" => $gender,
+        "gender" => $gender
     ];
-    
-    $result = ins_user($param);
-    
-    echo "result : ", $result, "<br>";
+
+    $result =user_inf($param);  
+
+    echo "result :", $result, "<br>";
     echo "uid : ", $uid, "<br>";
     echo "upw : ", $upw, "<br>";
     echo "confirm_upw : ", $confirm_upw, "<br>";
     echo "nm : ", $nm, "<br>";
     echo "gender : ", $gender, "<br>";
 
-    header("Location: login.php");
-
-    // header("location: login.php");
-
+    header("location: login.php");
