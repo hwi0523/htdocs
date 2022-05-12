@@ -33,8 +33,8 @@
     function sel_board_list(&$param) {
         $start_idx = $param["start_idx"];
         $row_count = $param["row_count"];
-        $sql = "SELECT A.i_board, A.title, A.created_at
-                     , B.nm
+        $sql = "SELECT A.i_board, A.title, A.created_at,
+                       B.i_user, B.profile_img , B.nm
                   FROM t_board A
                  INNER JOIN t_user B
                     ON A.i_user = B.i_user

@@ -1,0 +1,10 @@
+* {box-sizing: border-box;}
+textarea {
+    width: 900px;
+    height: 400px;
+  }
+.continer{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}

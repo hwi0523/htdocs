@@ -38,6 +38,16 @@
                 <?php if(isset($_SESSION["login_user"])) { ?>
                     <a href="write.php">글쓰기</a>
                     <a href="logout.php">로그아웃</a>
+                    <a href="profile.php">
+                        프로필
+                        <?php
+                            $session_img = $_SESSION["login_user"]["profile_img"];
+                            $profile_img = $session_img == null ? "basic.jpg" : $_SESSION["login_user"]["i_user"] . "/" .$session_img; 
+                        ?>
+                        <div class="circular__img wh40">
+                            <img src="/board_login/img/profile/<?=$profile_img?>"width=100>
+                        </div>
+                    </a>
                 <?php } else { ?>
                     <a href="login.php">로그인</a>
                 <?php } ?>                
@@ -59,7 +69,16 @@
                         <tr>
                             <td><?=$item["i_board"]?></td>
                             <td><a href="detail.php?i_board=<?=$item["i_board"]?>"><?=$item["title"]?></a></td>
-                            <td><?=$item["nm"]?></td>
+                            <td>
+                                <?=$item["nm"]?>
+                                <?php
+                            $session_img = $item["profile_img"];
+                            $profile_img = $session_img == null ? "basic.jpg" : $item["i_user"] . "/" .$session_img; 
+                                ?>
+                        <div class="circular__img wh40">
+                            <img src="/board_login/img/profile/<?=$profile_img?>"width=100>
+                        </div>
+                            </td>
                             <td><?=$item["created_at"]?></td>
                         </tr>
                     <?php } ?>
