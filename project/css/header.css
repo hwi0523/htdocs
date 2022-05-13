@@ -46,16 +46,3 @@ header{
     border: 1px solid black;
     padding: 10px 10px;
 }
-.hidden {
-        opacity: 0;
-}
-.main {
-    display: flex;
-    justify-content: center;
-    height: 100%;
-
-}
-form{
-    display: flex;
-    align-items: center;
-}

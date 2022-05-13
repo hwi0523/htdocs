@@ -5,9 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>질문</title>
-    <link rel="stylesheet" href="/project/css/qna_write.css">
+    <link rel="stylesheet" href="css/header.css">
 </head>
 <body>
+<?php
+include_once "header.php";
+?>
     <div class="continer">
     <h1>하고 싶은 질문을 하세요~</h1>
     <a href="qna.php"><button>이전으로</button></a>

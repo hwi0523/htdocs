@@ -1,0 +1,26 @@
+table {margin: auto;}
+th, td {border-bottom: 1px solid #000;}
+th {
+    border-top: 3px solid skyblue;
+    padding: 5px 20px;
+    text-align: center;
+}
+td {text-align: center;}
+
+h1 {
+    text-align: center;
+    padding: 10px;
+}
+h2 {
+    text-align: center;
+}
+
+a {text-decoration: none;}
+
+.circular__img {display: inline-block; overflow: hidden; border-radius: 50%;}
+.circular__img img {width: 100%; height: 100%; object-fit: cover;}
+.wh40 {width: 40px; height: 40px;}
+main{
+    text-align: center;
+    padding: 50px;
+}

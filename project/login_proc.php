@@ -19,7 +19,7 @@ if (empty($result)) {
 
 if ($upw === $result['upw']) {
     $_SESSION['login_user'] = $result;
-    header("location: qna.php");
+    header("location: list.php");
 } else {
     header("location: login.php");
 }
