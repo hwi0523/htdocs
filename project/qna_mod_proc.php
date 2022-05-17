@@ -1,7 +1,9 @@
 <?php
     include_once "db/db_board.php";
+
     session_start();
     $login_user = $_SESSION["login_user"];
+
 
     $qust_no = $_POST["qust_no"];
     $qust_title = $_POST["qust_title"];

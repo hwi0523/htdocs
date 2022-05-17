@@ -35,6 +35,7 @@
             , mt_rand(0, 0xffff) 
         ); 
     }
+    // qna ~~~~~~~~
     function qna_list()
     {
         $sql=
@@ -69,12 +70,13 @@
     }
     function qna_detail(&$param) {
         $qust_no = $param["qust_no"];
-        $sql = "SELECT A.qust_title, A.qust_ctnt, A.created_at, A.qust_no
-                     , B.user_no, B.nm, B.role
-                  FROM q_board A
-                 INNER JOIN t_user B
-                    ON A.user_no = B.user_no
-                 WHERE A.qust_no = '$qust_no'";
+
+        $sql = 
+        "SELECT * FROM t_user A
+        INNER JOIN q_board B
+        ON A.user_no = B.user_no
+        WHERE B.qust_no = '$qust_no'";
+
         $conn = get_conn();
         $result = mysqli_query($conn, $sql);
         mysqli_close($conn);        
@@ -147,5 +149,129 @@
         mysqli_close($conn);
         return $result;
     }
+ // 예찬씨 거~~~
+    function sel_board(&$param)
+    {
+        $food_no = $param["food_no"];
+    
+        $conn = get_conn();
+        $sql = "SELECT B.profile_img, B.nm, A.created_at, A.food_img, A.food_url, A.food_title, A.food_ctnt, A.user_no
+                FROM f_board A
+                INNER JOIN t_user B
+                ON A.user_no = B.user_no
+                WHERE A.food_no = $food_no";
+    
+        $result = mysqli_query($conn, $sql);
+        mysqli_close($conn);
+        return mysqli_fetch_assoc($result);
+    }
+        function recipe_list()
+        {     
+            $sql = "SELECT A.food_no, A.food_img, A.food_title, A.created_at,B.profile_img,
+                           B.nm, A.user_no 
+                    FROM f_board A
+                    INNER JOIN t_user B 
+                    ON A.user_no = B.user_no
+                    ORDER BY created_at desc";
+                
+            $conn = get_conn();
+            $result = mysqli_query($conn, $sql);
+            mysqli_close($conn);
+            return $result;
+        }
+    
+        function recipe_kfood()
+        {     
+            $sql = "SELECT A.food_no, A.food_img, A.food_title, A.created_at,B.profile_img,B.nm, A.user_no 
+                    FROM f_board A
+                    INNER JOIN t_user B ON A.user_no = B.user_no
+                    WHERE ctgr_no = 1";
+                
+            $conn = get_conn();
+            $result = mysqli_query($conn, $sql);
+            mysqli_close($conn);
+            return $result;
+        }
+        //레시피 한식목록 
+        function recipe_afood()
+        {     
+            $sql = "SELECT A.food_no, A.food_img, A.food_title, A.created_at,B.profile_img,B.nm, A.user_no
+                    FROM f_board A
+                    INNER JOIN t_user B ON A.user_no = B.user_no
+                    WHERE ctgr_no = 2";
+                
+            $conn = get_conn();
+            $result = mysqli_query($conn, $sql);
+            mysqli_close($conn);
+            return $result;
+        }
+        //레시피 양식목록 
+        function recipe_jfood()
+        {     
+            $sql = "SELECT A.food_no, A.food_img, A.food_title, A.created_at,B.profile_img,B.nm, A.user_no 
+                    FROM f_board A
+                    INNER JOIN t_user B ON A.user_no = B.user_no
+                    WHERE ctgr_no = 3";
+                
+            $conn = get_conn();
+            $result = mysqli_query($conn, $sql);
+            mysqli_close($conn);
+            return $result;
+        }
+        //레시피 일식목록
+        function recipe_cfood()
+        {     
+            $sql = "SELECT A.food_no, A.food_img, A.food_title, A.created_at,B.profile_img,B.nm, A.user_no 
+                    FROM f_board A
+                    INNER JOIN t_user B ON A.user_no = B.user_no
+                    WHERE ctgr_no = 4";
+                
+            $conn = get_conn();
+            $result = mysqli_query($conn, $sql);
+            mysqli_close($conn);
+            return $result;
+        }
+        //레시피 중식목록
+    
+        function comment(&$param){
+            $food_no = $param["food_no"];
+            $sql="SELECT A.*,B.nm
+            FROM r_board A
+            INNER JOIN t_user B ON A.user_no = B.user_no
+            WHERE A.food_no = $food_no";
+    
+            $conn = get_conn();
+            $result = mysqli_query($conn, $sql);
+            mysqli_close($conn);
+            return $result;
+        }
+        function ins_comment(&$param){
+            $food_no = $param["food_no"];
+            $user_no = $param["user_no"];
+            $reply_ctnt = $param["reply_ctnt"];
+    
+            $sql = "INSERT INTO r_board(food_no, user_no, reply_ctnt) 
+            VALUES ($food_no, $user_no, '$reply_ctnt')";
+    
+            $conn = get_conn();
+            $result = mysqli_query($conn, $sql);
+            mysqli_close($conn);
+    
+            return $result;
+        }
+    
+        function sel_detail_profile(&$param) {
+            $food_no = $param["food_no"];
+            
+            $sql = 
+            "   SELECT user_no
+                  FROM f_board
+                 WHERE food_no = $food_no
+            ";
+            $conn = get_conn();
+            $result = mysqli_query($conn, $sql);
+            mysqli_close($conn);
+            return mysqli_fetch_assoc($result);
+        }
 
     

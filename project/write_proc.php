@@ -21,12 +21,12 @@
     $last_index = mb_strrpos($img_name, ".");
     $ext = mb_substr($img_name, $last_index);
     $target_filenm = img_id() . $ext;
-    $img_path = "img/";
+    $img_path = "img/board";
     if(!is_dir($img_path)) {
         mkdir($img_path, 0777, true);
     }
     $tmp_img = $_FILES['img']['tmp_name'];
-    $imageUpload = move_uploaded_file($tmp_img, $img_path . $target_filenm);
+    $imageUpload = move_uploaded_file($tmp_img, $img_path . "/" . $target_filenm);
 
     if($imageUpload) {
         $param = [
@@ -42,7 +42,7 @@
     $ins_recipe = ins_recipe($param);
 
     if($ins_recipe) {
-        header("location: list.php");
+        header("location: allfood.php");
     }
 
 

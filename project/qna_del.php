@@ -14,3 +14,5 @@
     if($result) {
         Header("Location: qna.php");
     }
+
+    
